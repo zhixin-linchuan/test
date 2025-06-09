@@ -1,0 +1,23 @@
+name: Checkout Public Repository
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'branch to checkout'
+        required: false
+        default: dev
+        type: string
+jobs:
+  checkout:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          repository: huggingface/text-embeddings-inference
+          ref: ${{ github.event.inputs.branch }}
+          path: /code
+          fetch-depth: 1
+      - name: List files
+        run: tree -L 3
