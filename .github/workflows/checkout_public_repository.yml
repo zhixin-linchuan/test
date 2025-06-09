@@ -17,7 +17,7 @@ jobs:
         with:
           repository: huggingface/text-embeddings-inference
           ref: ${{ github.event.inputs.branch }}
-          path: /code
+          path: code
           fetch-depth: 1
       - name: List files
-        run: tree -L 3
+        run: tree code -L 3
