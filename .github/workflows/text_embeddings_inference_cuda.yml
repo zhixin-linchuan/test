@@ -6,7 +6,7 @@ on:
       branch:
         description: 'branch to checkout'
         required: false
-        default: main
+        default: qwen3-embeddings
         type: string
       runtime_compute_cap:
         description: 'runtime_compute_cap'
