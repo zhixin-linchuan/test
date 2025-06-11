@@ -6,7 +6,7 @@ on:
       branch:
         description: 'branch to checkout'
         required: false
-        default: qwen3-embeddings
+        default: main
         type: string
       runtime_compute_cap:
         description: 'runtime_compute_cap'
@@ -14,7 +14,7 @@ on:
         default: '80'
         type: string
 jobs:
-  checkout:
+  build:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout branch
@@ -38,7 +38,7 @@ jobs:
           context: .
           file: ./Dockerfile-cuda
           push: true
-          tags: zhixinlinchuan/text_embeddings_inference:cuda_qwen3
+          tags: zhixinlinchuan/text_embeddings_inference:main_20250611
           build-args: |
             CUDA_COMPUTE_CAP=${{ github.event.inputs.runtime_compute_cap }}
           
