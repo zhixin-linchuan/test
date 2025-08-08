@@ -1,9 +1,7 @@
 name: Build Docker Image
 
 on:
-  push:
-    branches:
-      - main  # 你要监听的分支，比如 main
+  workflow_dispatch:
 
 jobs:
   build:
