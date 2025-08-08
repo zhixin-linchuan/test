@@ -23,8 +23,6 @@ jobs:
       uses: docker/build-push-action@v6
       with:
         context: .
-        file: ./Dockerfile-cuda
+        file: ./vllm_dockerfile
         push: true
-        tags: zhixinlinchuan/text_embeddings_inference:main_20250611
-        build-args: |
-          CUDA_COMPUTE_CAP=${{ github.event.inputs.runtime_compute_cap }}
+        tags: zhixinlinchuan/vllm:gpt-oss
